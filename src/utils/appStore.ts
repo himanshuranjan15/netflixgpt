@@ -21,6 +21,11 @@ export const appStore = configureStore({
     gpt: persistedGPTReducer,
     config: persistedConfigReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      immutableCheck: false,
+      serializableCheck: false,
+    }),
 });
 
 export type AppDispatch = typeof appStore.dispatch;

@@ -24,3 +24,6 @@ export const SUPPORTED_LANGS = [
     name: "Spanish",
   },
 ];
+
+export const OPENAI_API_KEY =
+  "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";
