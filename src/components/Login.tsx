@@ -35,7 +35,6 @@ const Login = () => {
     const passwordValue: string = password.current?.value ?? "";
     const msg = checkValidData(emailValue, passwordValue);
 
-    // console.log(email, password);
     if (msg) setErrorMessage(msg);
 
     if (!isSignIn) {
@@ -59,14 +58,12 @@ const Login = () => {
                   photoUrl: "usericon.png",
                 })
               );
-              console.log("Profile Updated");
             })
             .catch((error) => {
               // An error occurred
               // ...
               setErrorMessage(error.message);
             });
-          console.log(userCredential);
           navigate("/browse");
           // ...
         })
@@ -80,7 +77,6 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log(user.displayName);
           navigate("/browse");
           // ...
         })

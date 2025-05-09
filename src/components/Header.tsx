@@ -11,15 +11,10 @@ const Header = () => {
   const user = useAppSelector((store) => store.user);
   // const photoUrl = useAppSelector((store) => store?.photoUrl);
   const handleSignOut = () => {
-    signOut(auth)
-      .then(() => {
-        // Sign-out successful.
-        dispatch(removeUser());
-      })
-      .catch((error) => {
-        // An error happened.
-        console.log("error" + error.message);
-      });
+    signOut(auth).then(() => {
+      // Sign-out successful.
+      dispatch(removeUser());
+    });
   };
   useEffect(() => {
     const unsubscribe = () => {

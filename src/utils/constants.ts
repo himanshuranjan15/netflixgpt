@@ -8,3 +8,4 @@ export const API_OPTIONS = {
 };
 
 export const TMDB_API = "https://api.themoviedb.org/3/movie";
+export const TMDB_IMG = "https://image.tmdb.org/t/p/w500";
