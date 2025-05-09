@@ -12,6 +12,10 @@ import { useAppDispath } from "../utils/reduxHooks";
 import { addUser } from "../utils/userSlice";
 
 const Login = () => {
+  // const user = useAppSelector((store) => store.user);
+  // if (user.uid) {
+  //   navigate("/browse");
+  // }
   const navigate = useNavigate();
   const dispatch = useAppDispath();
   const [isSignIn, setIsSignIn] = useState(true);
@@ -87,6 +91,7 @@ const Login = () => {
         });
     }
   };
+  // useEffect(() => {});
   return (
     <div>
       <Header />
