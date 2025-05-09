@@ -1,24 +1,27 @@
+// import { useSelector } from "react-redux";
 import useAddMovies from "../hooks/useAddMovies";
+import GPTSearch from "./GPTSearch";
 import Header from "./Header";
 import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
+import { useAppSelector } from "../utils/reduxHooks";
 
 const Browse = () => {
+  const showGPTSearch = useAppSelector((store) => store.gpt.active);
+
   useAddMovies();
 
   return (
     <div>
       <Header />
-      <MainContainer />
-      <SecondaryContainer />
-
-      {/*
-        Main Container
-          - Video Background
-        Secondary container
-          - Movielist * n
-            - cards * n
-        */}
+      {showGPTSearch ? (
+        <GPTSearch />
+      ) : (
+        <>
+          <MainContainer />
+          <SecondaryContainer />
+        </>
+      )}
     </div>
   );
 };

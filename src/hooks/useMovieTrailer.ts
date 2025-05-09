@@ -8,7 +8,9 @@ const useMovieTrailer = (movieId: string) => {
   const getMovieVideos = async () => {
     const data = await fetch(TMDB_API + "/" + movieId + "/videos", API_OPTIONS);
     const json = await data.json();
-    const tailers = json.results.filter((video) => video.type === "Trailer");
+    const tailers = json.results.filter(
+      (video: { type: string }) => video.type === "Trailer"
+    );
     const finalTrailer = tailers.length ? tailers[0] : json.results[0];
     dispatch(addTrailerVideo(finalTrailer?.key));
   };

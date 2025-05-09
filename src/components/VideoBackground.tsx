@@ -1,8 +1,10 @@
 import { useSelector } from "react-redux";
 import useMovieTrailer from "../hooks/useMovieTrailer";
 import { RootState } from "../utils/appStore";
-
-const VideoBackground = ({ movieId }) => {
+interface VideoBackgroundProps {
+  movieId: string;
+}
+const VideoBackground = ({ movieId }: VideoBackgroundProps) => {
   // https://www.youtube.com/watch?v=tlLsFEDHtWs
   useMovieTrailer(movieId);
   const trailerVideo = useSelector(

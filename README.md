@@ -32,6 +32,10 @@
 - Build Movie Card
 - TMDB Image CDN URL
 - Added Popular, upcoming,top rated movies
+- GPT Search header Link
+- GPT Search Page
+- GPT Search Bar
+- Multi Language Feature
 
 # Features
 

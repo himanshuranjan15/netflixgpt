@@ -7,7 +7,7 @@ import {
 } from "firebase/auth";
 import { checkValidData } from "../utils/validate";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { useAppDispath } from "../utils/reduxHooks";
 import { addUser } from "../utils/userSlice";
 
@@ -16,7 +16,7 @@ const Login = () => {
   // if (user.uid) {
   //   navigate("/browse");
   // }
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const dispatch = useAppDispath();
   const [isSignIn, setIsSignIn] = useState(true);
   const name = useRef<HTMLInputElement>(null);
@@ -64,7 +64,7 @@ const Login = () => {
               // ...
               setErrorMessage(error.message);
             });
-          navigate("/browse");
+          // navigate("/browse");
           // ...
         })
         .catch((error) => {
@@ -77,7 +77,8 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          navigate("/browse");
+          console.log("logged IN", user);
+          // navigate("/browse");
           // ...
         })
         .catch((error) => {
