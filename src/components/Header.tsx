@@ -52,8 +52,8 @@ const Header = () => {
     return () => unsubscribe();
   }, []);
   return (
-    <div className="absolute flex justify-between w-screen px-8 py-2 bg-gradient-to-b from-black z-10">
-      <img className="w-40" src="Netflix_Logo_PMS.png" />
+    <div className="absolute  w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between  ">
+      <img className="w-44 mx-auto md:mx-0" src="Netflix_Logo_PMS.png" />
       {user.uid && (
         <div className="flex p-2">
           {showGPTSearch && (
