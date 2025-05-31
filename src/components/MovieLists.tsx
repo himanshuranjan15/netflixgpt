@@ -9,9 +9,13 @@ const MovieLists = ({ title, movies }: MovieListsProps) => {
   if (!movies) return;
   //   const poster_path =
   return (
-    <div className="px-6 ">
-      <h1 className="text-3xl py-4 text-white">{title}</h1>
-      <div className="flex overflow-x-scroll no-scrollbar">
+    // Adjusted padding for different screen sizes: px-2 on smallest, sm:px-4, md:px-6 for larger screens.
+    // Kept my-4 for consistent vertical margin.
+    <div className="px-2 sm:px-4 md:px-6 my-4">
+      {/* Adjusted title font size for responsiveness: text-lg on smallest, sm:text-xl, md:text-3xl for larger screens. */}
+      {/* Retained py-4 for vertical padding around the title. */}
+      <h1 className="text-lg sm:text-xl md:text-3xl py-4 text-white">{title}</h1>
+      <div className="flex overflow-x-scroll no-scrollbar scroll-smooth"> {/* Added scroll-smooth */}
         <div className="flex">
           {/* <MovieCards poster_path={movies[0].poster_path} /> */}
           {movies.map(
