@@ -47,7 +47,7 @@ const useAddMovies = () => {
     getPopularMovieList();
     getUpcomingMovieList();
     getTopRatedMovieList();
-  });
+  }, []);
 };
 
 export default useAddMovies;

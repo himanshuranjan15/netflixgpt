@@ -1,16 +1,17 @@
-import React from "react";
 import GPTSearchBar from "./GPTSearchBar";
 import GPTMovieSuggestions from "./GPTMovieSuggestions";
 
 const GPTSearch = () => {
   return (
-    <div>
+    <>
       <div className="fixed -z-10 ">
-        <img src="animeLight.jpg" className="" />
+        <img src="animeLight.jpg" className="object-cover h-screen " />
       </div>
-      <GPTSearchBar />
-      <GPTMovieSuggestions />
-    </div>
+      <div className="pt-[30%] md:pt-0">
+        <GPTSearchBar />
+        <GPTMovieSuggestions />
+      </div>
+    </>
   );
 };
 
