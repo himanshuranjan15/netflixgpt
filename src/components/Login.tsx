@@ -95,47 +95,70 @@ const Login = () => {
   return (
     <div>
       <Header />
-      <div className="absolute h-screen">
-        <img src="animeLight.jpg" className="" />
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img
+          src="/animeLight.jpg" // Assuming it's in the public folder
+          className="w-full h-full object-cover"
+          alt="Background"
+        />
+        {/* Overlay to darken the image slightly for better text contrast */}
+        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
       </div>
-      <div className="absolute left-0 right-0 mx-auto my-36 text-white w-3/12 p-12 rounded-lg bg-black opacity-80 ">
-        <form onSubmit={(e) => e.preventDefault()}>
-          <h1 className="font-bold text-3xl py-4">
+
+      {/* Login Form Container */}
+      <div className="relative flex justify-center items-center min-h-screen px-4">
+        <form
+          onSubmit={(e) => e.preventDefault()}
+          className="w-full max-w-md bg-black bg-opacity-80 p-8 sm:p-12 rounded-lg text-white"
+        >
+          <h1 className="font-bold text-3xl sm:text-4xl py-4 mb-4 text-center sm:text-left">
             {isSignIn ? "Sign In" : "Sign Up"}
           </h1>
           {!isSignIn && (
             <input
               ref={name}
               type="text"
-              placeholder="Name"
-              className="p-4 my-4 w-full bg-amber-50 text-black rounded-xl"
+              placeholder="Full Name"
+              className="p-3 my-3 w-full bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-red-600"
             />
           )}
           <input
             ref={email}
-            type="text"
+            type="email" // Changed to type="email" for better semantics and validation
             placeholder="Email Address"
-            className="p-4 my-4 w-full bg-amber-50 text-black rounded-xl"
+            className="p-3 my-3 w-full bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-red-600"
+            autoComplete="email"
           />
           <input
             ref={password}
             type="password"
             placeholder="Password"
-            className="p-4 my-4 w-full bg-amber-50 text-black rounded-xl"
+            className="p-3 my-3 w-full bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-red-600"
+            autoComplete={isSignIn ? "current-password" : "new-password"}
           />
-          <p className="text-red-500 text-lg py-2">{errorMessage}</p>
+          {errorMessage && ( // Conditionally render error message only if it exists
+            <p className="text-red-500 font-semibold text-sm sm:text-base py-2 px-1 bg-red-100 bg-opacity-20 rounded-md">
+              {errorMessage}
+            </p>
+          )}
           <button
-            className="p-2 my-6 bg-red-700 w-full rounded-xl"
+            className="p-3 my-6 bg-red-600 hover:bg-red-700 w-full rounded-md font-semibold text-lg"
             onClick={handleButtonClick}
           >
-            {" "}
             {isSignIn ? "Sign In" : "Sign Up"}
           </button>
 
-          <p className="cursor-pointer" onClick={toggleSignInForm}>
+          <p
+            className="text-sm sm:text-base text-gray-400 cursor-pointer hover:text-white transition-colors duration-200"
+            onClick={toggleSignInForm}
+          >
             {isSignIn
-              ? "New to Netflix? Sign Up now!"
-              : "Already a member? Sign In"}
+              ? "New to Netflix? "
+              : "Already registered? "}
+            <span className="font-semibold hover:underline">
+              {isSignIn ? "Sign up now." : "Sign in."}
+            </span>
           </p>
         </form>
       </div>
